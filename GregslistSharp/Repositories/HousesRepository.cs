@@ -61,7 +61,7 @@ public class HousesRepository
     _db.Execute(sql, new { id });
   }
 
-  public House Edithouse(House houseData)
+  public House EditHouse(House houseData)
   {
     var sql = @"
         UPDATE houses SET
