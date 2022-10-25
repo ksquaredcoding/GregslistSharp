@@ -36,6 +36,9 @@ public class Startup
 
     services.AddTransient<CarsService>();
     services.AddTransient<CarsRepository>();
+
+    services.AddTransient<HousesService>();
+    services.AddTransient<HousesRepository>();
   }
 
   private void ConfigureCors(IServiceCollection services)
