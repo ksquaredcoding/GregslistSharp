@@ -33,6 +33,9 @@ public class Startup
 
     services.AddScoped<AccountsRepository>();
     services.AddScoped<AccountService>();
+
+    services.AddTransient<CarsService>();
+    services.AddTransient<CarsRepository>();
   }
 
   private void ConfigureCors(IServiceCollection services)
