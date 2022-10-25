@@ -42,4 +42,43 @@ public class HousesRepository
     houseData.Id = _db.ExecuteScalar<int>(sql, houseData);
     return houseData;
   }
+
+  public House GetHouseById(int id)
+  {
+    var sql = @"
+    SELECT * FROM houses
+    WHERE id = @id
+    ";
+    House house = _db.Query<House>(sql, new { id }).FirstOrDefault();
+    return house;
+  }
+
+  public void RemoveHouse(int id)
+  {
+    var sql = @"
+    DELETE FROM houses WHERE id = @id;
+    ";
+    _db.Execute(sql, new { id });
+  }
+
+  public House Edithouse(House houseData)
+  {
+    var sql = @"
+        UPDATE houses SET
+                bedrooms = @Bedrooms
+                bathrooms = @Bathrooms
+                levels = @Levels
+                year = @Year
+                price = @Price
+                description = @Description
+                imgUrl = @ImgUrl
+            WHERE id = @id;
+        ";
+    int edited = _db.Execute(sql, houseData);
+    if (edited == 0)
+    {
+      throw new Exception("No changes made to house");
+    }
+    return houseData;
+  }
 }

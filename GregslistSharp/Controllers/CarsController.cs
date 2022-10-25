@@ -24,6 +24,20 @@ public class CarsController : ControllerBase
     }
   }
 
+  [HttpGet("{id}")]
+  public ActionResult<Car> GetCarById(int id)
+  {
+    try
+    {
+      Car car = _carsService.GetCarById(id);
+      return Ok(car);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
+
 
   [HttpPost]
   public ActionResult<Car> CreateCar([FromBody] Car carData)
@@ -32,6 +46,35 @@ public class CarsController : ControllerBase
     {
       Car car = _carsService.CreateCar(carData);
       return Ok(car);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
+
+  [HttpPut("{id}")]
+  public ActionResult<Car> EditCar(int id, [FromBody] Car carData)
+  {
+    try
+    {
+      carData.Id = id;
+      Car car = _carsService.EditCar(carData);
+      return Ok(car);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
+
+  [HttpDelete("{id}")]
+  public ActionResult<Car> RemoveCar(int id)
+  {
+    try
+    {
+      _carsService.RemoveCar(id);
+      return Ok("Car Deleted");
     }
     catch (Exception e)
     {

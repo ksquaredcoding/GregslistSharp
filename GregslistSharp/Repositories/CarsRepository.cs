@@ -42,4 +42,42 @@ public class CarsRepository
     carData.Id = _db.ExecuteScalar<int>(sql, carData);
     return carData;
   }
+
+  public Car GetCarById(int id)
+  {
+    var sql = @"
+    SELECT * FROM cars
+    WHERE id = @id
+    ";
+    Car car = _db.Query<Car>(sql, new { id }).FirstOrDefault();
+    return car;
+  }
+
+  public void RemoveCar(int id)
+  {
+    var sql = @"
+    DELETE FROM cars WHERE id = @id;
+    ";
+    _db.Execute(sql, new { id });
+  }
+
+  public Car EditCar(Car carData)
+  {
+    var sql = @"
+        UPDATE cars SET
+                make = @Make,
+                model = @Model,
+                year = @Year,
+                price = @Price,
+                imgUrl = @ImgUrl,
+                description = @Description,
+            WHERE id = @id;
+        ";
+    int edited = _db.Execute(sql, carData);
+    if (edited == 0)
+    {
+      throw new Exception("No changes made to car");
+    }
+    return carData;
+  }
 }
