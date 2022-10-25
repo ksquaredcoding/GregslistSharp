@@ -14,12 +14,14 @@ INSERT INTO
     jobs(
         company,
         jobTitle,
+        hours,
         rate,
         description
     )
 VALUES (
         "KFC",
         "Chicken Slinger",
+        20,
         15,
         "Don't be a chicken, sling some chicken!"
     )
