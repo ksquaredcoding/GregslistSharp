@@ -28,8 +28,7 @@ public class CarsService
     current.Price = carData.Price ?? current.Price;
     current.Description = carData.Description ?? current.Description;
     current.ImgUrl = carData.ImgUrl ?? current.ImgUrl;
-    Car car = _carsRepo.EditCar(carData);
-    return car;
+    return _carsRepo.EditCar(carData);
   }
 
   public Car GetCarById(int id)

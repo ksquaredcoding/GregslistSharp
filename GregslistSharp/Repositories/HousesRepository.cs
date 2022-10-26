@@ -65,12 +65,12 @@ public class HousesRepository
   {
     var sql = @"
         UPDATE houses SET
-                bedrooms = @Bedrooms
-                bathrooms = @Bathrooms
-                levels = @Levels
-                year = @Year
-                price = @Price
-                description = @Description
+                bedrooms = @Bedrooms,
+                bathrooms = @Bathrooms,
+                levels = @Levels,
+                year = @Year,
+                price = @Price,
+                description = @Description,
                 imgUrl = @ImgUrl
             WHERE id = @id;
         ";

@@ -28,3 +28,19 @@ VALUES (
         "Yum Yum!!",
         "https://www.comunicaffe.com/wp-content/uploads/2020/12/KFC_self_driving_car.jpg"
     )
+SELECT *
+FROM cars;
+
+DROP TABLE cars;
+
+DELETE from cars WHERE id = 1;
+
+UPDATE cars
+SET
+    make = @make,
+    model = @model,
+    year = @year,
+    price = @price,
+    imgUrl = @imgUrl,
+    description = @description
+WHERE id = @id;

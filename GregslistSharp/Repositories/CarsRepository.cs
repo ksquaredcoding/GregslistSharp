@@ -65,12 +65,12 @@ public class CarsRepository
   {
     var sql = @"
         UPDATE cars SET
-                make = @Make,
-                model = @Model,
-                year = @Year,
-                price = @Price,
-                imgUrl = @ImgUrl,
-                description = @Description,
+                make = @make,
+                model = @model,
+                year = @year,
+                price = @price,
+                imgUrl = @imgUrl,
+                description = @description
             WHERE id = @id;
         ";
     int edited = _db.Execute(sql, carData);
