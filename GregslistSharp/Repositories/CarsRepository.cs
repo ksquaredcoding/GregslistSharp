@@ -64,15 +64,15 @@ public class CarsRepository
   public Car EditCar(Car carData)
   {
     var sql = @"
-        UPDATE cars SET
-                make = @make,
-                model = @model,
-                year = @year,
-                price = @price,
-                imgUrl = @imgUrl,
-                description = @description
-            WHERE id = @id;
-        ";
+    UPDATE cars SET
+        make = @make,
+        model = @model,
+        year = @year,
+        price = @price,
+        imgUrl = @imgUrl,
+        description = @description
+    WHERE id = @id;
+  ";
     int edited = _db.Execute(sql, carData);
     if (edited == 0)
     {
