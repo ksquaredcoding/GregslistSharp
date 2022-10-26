@@ -17,8 +17,6 @@
 import { computed } from '@vue/reactivity';
 import { onMounted } from 'vue';
 import { AppState } from '../AppState.js';
-import { Car } from '../models/Car.js';
-import { SellerProfile } from '../models/SellerProfile.js';
 
 export default {
   props: {

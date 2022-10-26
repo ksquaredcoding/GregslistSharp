@@ -14,8 +14,6 @@
 
 <script>
 import { AppState } from "../AppState.js";
-import { Job } from "../models/Job.js";
-import { SellerProfile } from "../models/SellerProfile.js";
 import { computed } from '@vue/reactivity';
 
 export default {
